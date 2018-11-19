@@ -12,6 +12,8 @@ If you need p-values for all variables, the current computing speed is slow, esp
 
 ### Install the R package
 
-To install, please use install_github("statcao/LOCOpath")
-
+To install, please use 
+'''
+install_github("statcao/LOCOpath")
+'''
 
