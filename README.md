@@ -1,4 +1,4 @@
-# A unified framework for high-dimensional inference using LOCO regularization path
+# A generalized framework for high-dimensional inference using Leave-One-Covariate-Out regularization path
 ## Cao, X, Gregory, K.B, Wang, D
 ### Maintained by Xiangyang Cao
 
@@ -14,6 +14,7 @@ If you need p-values for all variables, the current computing speed is slow, esp
 
 To install, please use 
 ```
+install.packages("devtools")
 install_github("statcao/LOCOpath")
 ```
 
