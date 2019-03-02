@@ -2,11 +2,11 @@
 ## Cao, X, Gregory, K.B, Wang, D
 ### Maintained by Xiangyang Cao
 
-For the **python** package, please go to [this link](https://github.com/statcao/LOCO_parse).
+#### For the **python** package, please go to [this link](https://github.com/statcao/LOCO_parse).
 
-This R package is for high-dimensional inference using LOCO regularization path. Allows calculating variable/feature importance for regularized linear/logistic/GLM model , varaible screening for high-dimensional regression and statistical inference in the high-dimensional settings. 
+This R package is for high-dimensional inference using LOCO regularization path. Allows calculating **variable/feature importance** for regularized linear/logistic/GLM model , **varaible screening** for high-dimensional regression and **statistical inference** in the high-dimensional settings. 
 
-Parallel computing is surpported to accelerate the inference process. 
+**Parallel computing** is surpported to accelerate the inference process. 
 
 
 Our method is adaptable for all regularization techique, as long as you can solve the whole regularization path. We also provide the framework to feed in your own solution path. But keep in mind you need to verify the statistical correctness. (Our first paper verified it for linear models only). 
