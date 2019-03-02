@@ -2,13 +2,18 @@
 ## Cao, X, Gregory, K.B, Wang, D
 ### Maintained by Xiangyang Cao
 
-This R package is for high-dimensional inference using LOCO regularization path, contains tools for computing test statistics and p-values. Parallel computing is surpported to accelerate the inference process. 
+For the python package, please go to [this link](https://github.com/statcao/LOCO_parse).
+
+This R package is for high-dimensional inference using LOCO regularization path. Allows calculating variable/feature importance for regularized linear/logistic/GLM model , varaible screening for high-dimensional regression and statistical inference in the high-dimensional settings. 
+
+Parallel computing is surpported to accelerate the inference process. 
+
 
 Our method is adaptable for all regularization techique, as long as you can solve the whole regularization path. We also provide the framework to feed in your own solution path. But keep in mind you need to verify the statistical correctness. (Our first paper verified it for linear models only). 
 
-We are now focus on the inference for high-dimensional linear regression. Soon, we will add tools for GLM, Cox PH model and Gaussian graphical models.  
+The statistical inference procedure now are for high-dimensional linear regression only. Soon, we will add tools for GLM, Cox PH model and Gaussian graphical models.  
 
-If you need p-values for all variables, the current computing speed is slow, especily for high-dimensional case. We are optimizing the performance of this package using Rcpp. To conduct multiple tests, we recommend use our simultaneous test.
+If you need p-values for all variables, the current computing speed is slow, especily in the high-dimensional case. The core calculation is implemented in C++. Because we need to fit the whole path many times. the bottleneck of speed is the coordinate descent and Lars algorithm, which we used standard package glmnet, Lars and scikit learn.
 
 ### Install the R package
 
