@@ -1,6 +1,5 @@
 # A generalized framework for high-dimensional inference using Leave-One-Covariate-Out regularization path
 ## Cao, X, Gregory, K.B, Wang, D
-### Maintained by Xiangyang Cao
 
 #### For the **python** package, please go to [this link](https://github.com/statcao/LOCO_parse).
 
