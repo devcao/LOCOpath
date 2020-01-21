@@ -13,7 +13,7 @@ Path.Resample.Power(n = 100, p = 1000, beta = c(rep(1, 10), rep(0,
 
 \item{p:}{integar, number of covariates}
 
-\item{rho:}{correlation, if real value, $eqn{\Sigma_{i,j} = \rho ^ {|i-j|}}
+\item{rho:}{correlation, if real value, $eqn{Sigma_{i,j} = rho ^ {|i-j|}}
 if string, c("equl", "weak_equl")}
 
 \item{beta:}{true beta coefficient}
