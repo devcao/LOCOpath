@@ -11,7 +11,7 @@ depenDesign(n, p, beta, rho)
 
 \item{p:}{integar, number of covariates}
 
-\item{rho:}{correlation, if real value, $eqn{\Sigma_{i,j} = \rho ^ {|i-j|}}
+\item{rho:}{correlation, if real value, $eqn{Sigma_{i,j} = rho ^ {|i-j|}}
 if string, c("equl", "weak_equl")}
 }
 \value{
