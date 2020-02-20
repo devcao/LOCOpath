@@ -21,7 +21,6 @@ If you need p-values for all variables, the current computing speed is slow, esp
 
 To install, please use 
 ```
-install.packages("devtools")
-install_github("statcao/LOCOpath")
+devtools::install_github("devcao/LOCOpath")
 ```
 
