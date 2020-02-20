@@ -57,7 +57,7 @@ Path.Resample = function(X, Y, which.covariate, betaNull, multiTest, B = 500, pa
 
 
 
-  if(p >= n){ # high dimension we can try...
+ # if(p >= n){ # high dimension we can try...
 
   	if(beta.init == "adaptive"){
   		bhat = adalasso(X = X, y = Y, k = 10, use.Gram = FALSE,both = TRUE, intercept = FALSE)$coefficients.adalasso
@@ -80,11 +80,11 @@ Path.Resample = function(X, Y, which.covariate, betaNull, multiTest, B = 500, pa
     
     residual = Y - X%*%bhat
     
-  	}else{ # low dimenstion just use LSE
-    	bhat = ginv(t(X)%*%X)%*%t(X)%*%Y    
-    	residual = Y - X%*%bhat
+  #	}else{ # low dimenstion just use LSE
+  #  	bhat = ginv(t(X)%*%X)%*%t(X)%*%Y    
+  #  	residual = Y - X%*%bhat
   	
-  	}
+  #	}
   
   #TS_null = matrix(NA, nrow = B, ncol = length(which.covariate))
 
