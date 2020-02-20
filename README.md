@@ -25,7 +25,7 @@ devtools::install_github("devcao/LOCOpath")
 ```
 
 ### Simulation 
-Check ```power_curve_simulation_template.R``` for the code.
+Check ```power_simulation_template.R``` for the code.
 
 
 
