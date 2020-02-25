@@ -10,13 +10,13 @@ The statistical inference procedure now are for high-dimensional linear regressi
 ### Install the R package
 
 To install, please use 
-```
+```R
 devtools::install_github("devcao/LOCOpath")
 ```
 
 ### How to use?
 #### Simple example
-```
+```R
 require(LOCOpath)  ## load the package
 set.seed(10)
 data = depenDesign(n = 100, p = 12, beta = c(0,rep(1,2),rep(0,9)), rho = 0) ## generate some data
@@ -27,7 +27,7 @@ rsmpl_rslt = Path.Resample(X=data$X, Y=data$Y, which.covariate = 1, betaNull = 0
 print(rsmpl_rslt$pval)
 ```
 You should see: 
-```
+```R
 > print(rsmpl_rslt$pval)
 [1] 0.226
 ```
