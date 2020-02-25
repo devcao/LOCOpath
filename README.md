@@ -37,11 +37,11 @@ You should the following p-value for beta_1
 
 #### Power curve simulation 
 Simulate power curve check the function
-```
+```R
 Path.Resample.Power
 ```
 Power curve of other method: desparsified LASSO, t-test and F-test, please check [this file](./compare_power.R)
-```
+```R
 require(LOCOpath)
 ## model setting 
 n = 100; p = 12; rho = 0
@@ -114,7 +114,7 @@ legend( x = grconvertX(0.2, from = 'nfc', to = 'user'),
 ![Results](./power_curve_12.png)
 
 #### Reproduce the real data analysis section
-```
+```R
 require(LOCOpath)
 
 
