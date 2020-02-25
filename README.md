@@ -36,3 +36,8 @@ You should the following p-value for beta_1
 ```
 
 #### Power curve simulation
+```
+require(LOCOpath)
+
+
+```
