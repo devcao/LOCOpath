@@ -17,7 +17,19 @@ devtools::install_github("devcao/LOCOpath")
 ### How to use?
 #### Simple example
 ```
-require(LOCOpath)
-data = depenDesign(n = 100, p = 1000, beta = c(0,rep(1,9),rep(0,990)), rho = 0)
-
+require(LOCOpath)  ## load the package
+set.seed(10)
+data = depenDesign(n = 100, p = 12, beta = c(0,rep(1,2),rep(0,9)), rho = 0) ## generate some data
+## calculate our test statistic for beta_1, using L1 norm
+TS = ExactPath.TS(X=data$X, Y=data$Y, which.covariate = 1, betaNull = 0, multiTest = FALSE, norm = 'L1')
+## calculate bootstrapped p-value for beta_1, using L1 norm 
+rsmpl_rslt = Path.Resample(X=data$X, Y=data$Y, which.covariate = 1, betaNull = 0, multiTest = FALSE, norm = 'L1', B = 500, parallel = TRUE, beta.init = 'adaptive', beta.true = 0)
+print(rsmpl_rslt$pval)
 ```
+You should see: 
+```
+> print(rsmpl_rslt$pval)
+[1] 0.226
+```
+
+#### Power curve simulation
