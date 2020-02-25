@@ -20,6 +20,7 @@ devtools::install_github("devcao/LOCOpath")
 require(LOCOpath)  ## load the package
 set.seed(10) ## set seed
 data = depenDesign(n = 100, p = 12, beta = c(0,rep(1,2),rep(0,9)), rho = 0) ## generate some data
+
 ## calculate our test statistic for beta_1, using L1 norm
 TS = ExactPath.TS(X=data$X, Y=data$Y, which.covariate = 1, betaNull = 0, multiTest = FALSE, norm = 'L1')
 ## calculate bootstrapped p-value for beta_1, using L1 norm 
