@@ -106,4 +106,4 @@ legend( x = grconvertX(0.2, from = 'nfc', to = 'user'),
 
 
 ```
-![Results](./new_12.pdf)
+![Results](./power_curve_12.png)
