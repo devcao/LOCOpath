@@ -106,4 +106,4 @@ legend( x = grconvertX(0.2, from = 'nfc', to = 'user'),
 
 
 ```
-![Optional Text](../master/new_12.pdf)
+![Optional Text](./new_12.pdf)
