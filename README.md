@@ -112,3 +112,38 @@ legend( x = grconvertX(0.2, from = 'nfc', to = 'user'),
 
 ```
 ![Results](./power_curve_12.png)
+
+#### Reproduce the real data analysis section
+```
+require(LOCOpath)
+
+
+TS_util_fun = function(x_sp, y_sp, which.covariate = 1, betaNull = 0, multiTest = FALSE, path.method = "lars",
+                       norm = "L1", normalize = TRUE, intercept = FALSE){
+  return(
+    ExactPath.TS(X = x_sp, Y = y_sp, which.covariate = which.covariate, betaNull = betaNull,
+                 multiTest = multiTest, path.method = path.method,
+                 norm = norm, normalize = normalize, intercept = intercept)
+  )
+}
+
+n_threads = detectCores()
+cl = makeCluster(n_threads, type = "FORK")
+
+TS=unlist(parLapply(cl, X=1:4088, TS_util_fun, 
+                        x_sp = riboflavin$x, y_sp = riboflavin$y, 
+                        betaNull = 0, multiTest = FALSE, path.method = "lars",
+                        norm = "L1", normalize = TRUE, intercept = FALSE))
+index = which(TS > 0)
+
+x = riboflavin$x[, index]
+y = riboflavin$y
+
+### calculate p-value for genes screened in
+for (i in 1:length(index)){
+        obj[[i]] = Path.Resample(X = x, Y = y, which.covariate = i,
+                                betaNull = 0, multiTest = FALSE, B = 10000, 
+                                beta.true = 0)
+
+
+```
