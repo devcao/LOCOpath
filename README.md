@@ -1,7 +1,7 @@
 # High-Dimensional Inference based on the Leave-One-Covariate-Out LASSO path
 ## Cao, X, Gregory, K.B, Wang, D
 
-This R package is for high-dimensional inference using LOCO regularization path. Allows calculating **variable/feature importance** for regularized linear/logistic/GLM model , **varaible screening** for high-dimensional regression and **statistical inference** in the high-dimensional settings. 
+This R package is for high-dimensional inference using LOCO regularization path. Allows calculating **variable/feature importance**, **variable screening** for high-dimensional regression and **statistical inference** in the high-dimensional settings. 
 
 **Parallel computing** is surpported to accelerate the inference process. 
 
