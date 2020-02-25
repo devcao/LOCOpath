@@ -36,6 +36,11 @@ You should the following p-value for beta_1
 ```
 
 #### Power curve simulation 
+Simulate power curve check the function
+```
+Path.Resample.Power
+```
+Power curve of other method: desparsified LASSO, t-test and F-test, please check [Results](./compare_power.R)
 ```
 require(LOCOpath)
 ## model setting 
