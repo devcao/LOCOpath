@@ -29,7 +29,7 @@ rsmpl_rslt = Path.Resample(X = data$X, Y = data$Y,
                            B = 500, parallel = TRUE, beta.init = 'adaptive', beta.true = 0)
 print(rsmpl_rslt$pval)
 ```
-You should the following p-value for beta_1
+You should see the following p-value for beta_1
 ```R
 > print(rsmpl_rslt$pval)
 [1] 0.226
