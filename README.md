@@ -140,10 +140,11 @@ x = riboflavin$x[, index]
 y = riboflavin$y
 
 ### calculate p-value for genes screened in
+obj = list()
 for (i in 1:length(index)){
         obj[[i]] = Path.Resample(X = x, Y = y, which.covariate = i,
                                 betaNull = 0, multiTest = FALSE, B = 10000, 
                                 beta.true = 0)
-
+}
 
 ```
