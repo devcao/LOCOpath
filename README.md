@@ -3,7 +3,7 @@
 
 This R package is for high-dimensional inference using LOCO regularization path. Allows calculating **variable/feature importance**, **variable screening** for high-dimensional regression and **statistical inference** in the high-dimensional settings. 
 
-**Parallel computing** is supported to accelerate the inference process (on MacOS and Linux. Windows users, sorry). 
+**Parallel computing** is supported to accelerate the inference process (on **MacOS** and **Linux**. Windows users, sorry). 
 
 The statistical inference procedure now are for high-dimensional linear regression only. Soon, we will add tools for GLM, Cox PH model and Gaussian graphical models.  
 
