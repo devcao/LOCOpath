@@ -116,7 +116,8 @@ legend( x = grconvertX(0.2, from = 'nfc', to = 'user'),
 #### Reproduce the real data analysis section
 ```R
 require(LOCOpath)
-
+require(hdi)
+data(riboflavin)
 
 TS_util_fun = function(x_sp, y_sp, which.covariate = 1, betaNull = 0, multiTest = FALSE, path.method = "lars",
                        norm = "L1", normalize = TRUE, intercept = FALSE){
