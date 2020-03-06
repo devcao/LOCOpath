@@ -1,6 +1,8 @@
 # LOCOpath
 This R package is for high-dimensional inference using Leave-One-Covariate-Out(LOCO) LASSO path.
+
 This R package accompanies the paper:
+
 Cao, X., Gregory, K. B., & Wang, D. High-Dimensional Inference based on the Leave-One-Covariate-Out LASSO path
 
 ## Install the R package
@@ -11,4 +13,4 @@ devtools::install_github("devcao/LOCOpath")
 ```
 
 ## How to use
-Feel free to check out ./Example.md for more detailed examples.
+Feel free to check out [some working examples](./Example.md) for more detailed examples.
