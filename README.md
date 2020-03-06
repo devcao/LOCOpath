@@ -13,4 +13,4 @@ devtools::install_github("devcao/LOCOpath")
 ```
 
 ## How to use
-Feel free to check out [some working examples](./Example.md) for more detailed examples.
+Feel free to check out [some working examples](./Examples.md) for more detailed examples.
