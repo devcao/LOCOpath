@@ -113,6 +113,85 @@ legend( x = grconvertX(0.2, from = 'nfc', to = 'user'),
 ```
 ![Results](./power_curve_12.png)
 
+#### Reproduce the variable screening simulation
+```R
+require(LOCOpath)
+require(mvnfast)
+
+depenDesign_screen = function(n, p, beta, rho){
+    # equi corr
+    Sigma = matrix(rep(rho,p*p),p,p)
+    diag(Sigma) = rep(1,p)
+    Mu=rep(0,p)
+    X=rmvn(n, mu = Mu,sigma = Sigma)
+    Y <- X %*% beta + rnorm(n,0,1)   
+  return(list(X = X, Y = Y))   
+  
+}
+
+
+TS_util_fun = function(x_sp, y_sp, which.covariate = 1, betaNull = 0, multiTest = FALSE, path.method = "lars",
+                       norm = "L1", normalize = TRUE, intercept = FALSE){
+  return(
+    ExactPath.TS(X = x_sp, Y = y_sp, which.covariate = which.covariate, betaNull = betaNull,
+                 multiTest = multiTest, path.method = path.method,
+                 norm = norm, normalize = normalize, intercept = intercept)
+  )
+}
+
+## the simulation function
+screen_simu = function(n, p, signal, rho, iter=200, norm = 'L1'){
+  
+  result_L1 = c(); result_L2 = c()
+  for (i in 1:iter){
+    
+    #n = 20;p = 100;rho = 0.5
+    data = depenDesign_screen(n = n, p = p, beta = c(rep(signal,3), rep(0, p-3)), rho)
+    
+    n_threads = detectCores()
+    cl = makeCluster(n_threads, type = "FORK")
+    
+    TS=unlist(parLapply(cl, X=1:p, TS_util_fun,
+                        x_sp = data$X, y_sp = data$Y,
+                        betaNull = 0, multiTest = FALSE, path.method = "lars",
+                        norm = 'L1', normalize = TRUE, intercept = FALSE))
+    stopCluster(cl)
+    
+    result_L1[i] = all( TS[1:3] %in% sort(TS, decreasing = TRUE)[1:n-1] )
+    
+    
+    cl = makeCluster(n_threads, type = "FORK")
+    
+    TS=unlist(parLapply(cl, X=1:p, TS_util_fun,
+                        x_sp = data$X, y_sp = data$Y,
+                        betaNull = 0, multiTest = FALSE, path.method = "lars",
+                        norm = 'L2.squared', normalize = TRUE, intercept = FALSE))
+    stopCluster(cl)
+    
+    result_L2[i] = all( TS[1:3] %in% sort(TS, decreasing = TRUE)[1:n-1] )
+    
+    
+    cat("Now running:", i, '\n')
+  }
+  
+  return( list(L1 = mean(result_L1), L2 = mean(result_L2)) )
+}
+
+n = 50; p = 1000 # also run n = 20; p = 100
+iter = 200 
+scrn_rslt = list()
+for (beta_1 in 1:5){
+
+  scrn_rslt$rho00 = screen_simu(n = n, p = p, signal = beta_1, rho = 0, iter = iter)
+  scrn_rslt$rho01 = screen_simu(n = n, p = p, signal = beta_1, rho = 0.1, iter = iter)
+  scrn_rslt$rho05 = screen_simu(n = n, p = p, signal = beta_1, rho = 0.5, iter = iter)
+  scrn_rslt$rho09 = screen_simu(n = n, p = p, signal = beta_1, rho = 0.9, iter = iter)
+}
+
+```
+
+
+
 #### Reproduce the real data analysis section
 ```R
 require(LOCOpath)
