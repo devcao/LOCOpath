@@ -28,8 +28,7 @@ dataGen = function(setting = 'dep', ...){
 #' 				if string, c("equl", "weak_equl")
 #' @return a list with X and Y
 #' @export
-depenDesign
-function(n, p, beta, rho){
+depenDesign = function(n, p, beta, rho){
   if(rho == 'equl'){  # equi corr
     Sigma = matrix(rep(0.8,p*p),p,p)
     diag(Sigma) = rep(1,p)
