@@ -3,7 +3,7 @@ Title: R package for high-dimensional inference using LOCO regularization path
 Version: 0.0.0.9000
 Authors@R: person("Xiangyang", "Cao", email = "caoxiangyang93@gmail.com", role = c("aut", "cre"))
 Description:  An implementation of the new high-dimensional inference method using LOCO regularization path. It includes the calculation of test statistics and p-value. It also supports the simulation of the power.
-Depends: R (>= 3.5.1), hdi, MASS, lars, glmnet, doMC, pryr, mvtnorm, plus, ncvreg, mvnfast
+Depends: R (>= 3.5.1), hdi, MASS, lars, glmnet, doMC, mvtnorm, plus, ncvreg, mvnfast
 License: MIT
 Encoding: UTF-8
 LazyData: true
