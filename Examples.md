@@ -227,4 +227,33 @@ for (i in 1:length(index)){
                                 beta.true = 0)
 }
 
+## generate the variable importance barplot
+
+TS_temp=TS
+names(TS_temp) = colnames(riboflavin$x[, index])
+
+pdf('var_imp_ribo_26.pdf')
+barplot(sort(TS/sum(TS), decreasing = TRUE)[1:26], col="grey50", 
+        main="",
+        ylab="variable importance",
+        xlab = "",
+        space=1)
+text(seq(1.5, 52, by=2), par("usr")[3], 
+     srt = 60, adj= 1, xpd = TRUE,
+     labels = (names(sort(TS_temp/sum(TS_temp), decreasing = TRUE)[1:26])), cex=0.5)
+dev.off()
+
+
+pdf('var_imp_ribo_100.pdf')
+barplot(sort(TS/sum(TS), decreasing = TRUE)[1:100], col="grey50", 
+        main="",
+        ylab="variable importance",
+        xlab = "",
+        space=1)
+text(seq(1.5, 202, by=4), par("usr")[3], 
+     srt = 60, adj= 1, xpd = TRUE,
+     labels = (names(sort(TS_temp/sum(TS_temp), decreasing = TRUE)[seq(1,101,2)])), cex=0.5)
+abline(v=26, col = 'red', lty = 3, lwd = 2)
+dev.off()
+
 ```
